@@ -8,7 +8,7 @@ class BirdsService {
     return bird
   }
   async getBirds(query) {
-    const birds = await dbContext.Birds.find({ query }).populate('creator timesWatched')
+    const birds = await dbContext.Birds.find({ query }).populate('timesWatched').populate('creator', 'name picture')
     return birds
   }
 
